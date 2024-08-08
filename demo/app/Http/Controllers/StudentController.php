@@ -18,14 +18,17 @@ class StudentController extends Controller
         $students=Student::all();
         // dump($students);
         // return view('studentsData',["students"=>$students]);
-        return view('studentsData',compact("students"));
+        return view('students.studentsData',compact("students"));
     }
 
 
     function view($id)
     {
-      $student=Student::find($id);
-      return view('studentData',compact("student"));
+
+        /** id */
+    //   $student=Student::find($id);
+      $student=Student::findOrFail($id);
+      return view('students.studentData',compact("student"));
     }
 
     /****
@@ -37,4 +40,56 @@ class StudentController extends Controller
      * create table tracks  => all data of =>Tracks , btn (view => single track data (back => tracks data),delete=> delete track data)
      *
      */
+
+
+     function destroy($id)
+     {
+         $student=Student::findOrFail($id);
+         $student->delete();
+         return to_route('students.index');
+     }
+
+     function create()
+     {
+        return view('students.create');
+     }
+
+     function store()
+     {
+        // dump($_POST);
+        $requestData=request()->all();
+        // dump($requestData);
+        $student= new Student();
+        // dump($student);
+        $student->name=$requestData['name'];
+        $student->email=$requestData['email'];
+        $student->gender=$requestData['gender'];
+        $student->grade=$requestData['grade'];
+        $student->address=$requestData['address'];
+        $student->image=$requestData['image'];
+
+        $student->save();
+        return to_route('students.index');
+
+
+     }
+     /** edit  */
+     function edit($id)
+     {
+        $student=Student::findOrFail($id);
+        return view('students.update',compact("student"));
+     }
+
+     function update($id)
+     {
+        $student=Student::findOrFail($id);
+        $updatedStudentData=request()->all();
+        // dump($student,$updatedStudentData);
+        $student->update($updatedStudentData);
+        return to_route('students.index');
+     }
+
+
+
+
 }

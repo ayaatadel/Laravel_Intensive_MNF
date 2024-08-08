@@ -1,0 +1,17 @@
+/** cruds
+==destroy
+== create
+== update
+/** run controller with all function => (resource controller=> build up all cruds function)
+==> and use model
+php artisan make:controller TrackController --model=Track
+
+
+/** component => code => can resuse in any way
+
+
+
+task => cruds => tracks
+== component
+== students -> image ,track-> logo
+

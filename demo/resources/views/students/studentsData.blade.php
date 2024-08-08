@@ -33,8 +33,14 @@
                 <td>{{ $student->gender }}</td>
                 <td>
                    {{-- <a href="/students/{{$student->id}}"> <button class="btn btn-warning">View</button></a> --}}
-                   <a href="{{route('students.view',$student->id)}}"> <button class="btn btn-warning">View</button></a>
-                   <a > <button class="btn btn-danger">Delete</button></a>
+                   <a href="{{route('students.view',$student->id)}}"> <button class="btn btn-success">View</button></a>
+                <form action="{{route('students.destroy',$student->id)}}" method="post">
+                    @method('DELETE')
+                    @csrf
+                     <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+                <a href="{{route('students.create',$student->id)}}"> <button class="btn btn-info">Create</button></a>
+                <a href="{{route('students.edit',$student->id)}}"> <button class="btn btn-warning">update</button></a>
 
                 </td>
             </tr>

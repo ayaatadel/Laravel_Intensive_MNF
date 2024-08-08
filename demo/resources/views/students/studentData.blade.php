@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <h1 class="text-info w-50 mt-5 m-auto"> {{$student->name}} Data</h1>
+    {{-- <h1 class="text-info w-50 mt-5 m-auto"> {{$student->name}} Data</h1> --}}
 <table class="table w-75 m-auto table-bordered mt-5">
     <thead>
         <tr>

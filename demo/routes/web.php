@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -53,5 +54,15 @@ Route::get('/', function () {
   * DBNmae , userName , Password , host => .env  */
 
 
+  Route::get('/students/{id}/create',[StudentController::class,'create'])->name('students.create');
   Route::get('/students',[StudentController::class,'index'])->name('students.index');
   Route::get('/students/{id}',[StudentController::class,'view'])->name('students.view');
+Route::delete('/students/{id}',[StudentController::class,'destroy'])->name('students.destroy');
+Route::post('/students/store',[StudentController::class,'store'])->name('students.store');
+
+Route::get('/students/{id}/edit',[StudentController::class,'edit'])->name('students.edit');
+
+Route::put('/students/{id}/update',[StudentController::class,'update'])->name('students.update');
+
+
+Route::get('/tracks',[TrackController::class,'index'])->name('tracks.index');

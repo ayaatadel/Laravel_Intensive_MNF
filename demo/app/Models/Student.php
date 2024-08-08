@@ -14,4 +14,5 @@ class Student extends Model
      */
 //  protected $table="studntsData";  // if table name with another Name
 /** protected $primaryKey="studentId" */
+protected $fillable=['name','grade','image','address','email','gender'];
 }
