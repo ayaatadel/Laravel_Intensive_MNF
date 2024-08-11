@@ -15,3 +15,38 @@ task => cruds => tracks
 == component
 == students -> image ,track-> logo
 
+===============================================
+Day4
+==
+seeder => class
+seeding data =>  (fake data) => testing on code
+seeder (store),
+
+ factory (create data) => database => blue print
+ php artisan make:factory TrackFactory
+  php artisan make:factory TrackFactory --model=Track
+
+
+  // run to seed data
+  php artisan db:seed --class=TrackSeeder
+
+// pagination =>
+
+
+// generate all model , seeder ,factory ,controller
+php artisan make:model nameofmodel  -mfsc
+php artisan make:model nameofmodel  -all
+
+
+=== validation of data
+https://laravel.com/docs/11.x/validation#main-content
+
+
+
+/** course
+courses
+== tracks handle edit and delete for image
+=> id , name ,
+totalGrade,description => seeder , factory , migration ,
+ controller=> validation on data
+and handle error message

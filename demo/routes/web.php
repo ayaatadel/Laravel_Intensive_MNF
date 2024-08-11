@@ -65,4 +65,23 @@ Route::get('/students/{id}/edit',[StudentController::class,'edit'])->name('stude
 Route::put('/students/{id}/update',[StudentController::class,'update'])->name('students.update');
 
 
-Route::get('/tracks',[TrackController::class,'index'])->name('tracks.index');
+// Route::get('/tracks',[TrackController::class,'index'])->name('tracks.index');
+
+
+/** Route resource */
+Route::resource('tracks',TrackController::class);
+/*
+
+// method         // url            // route name
+ GET|HEAD        tracks ........... tracks.index ›
+ function in controller
+ TrackController@index
+  POST            tracks ........... tracks.store › TrackController@store
+  GET|HEAD        tracks/create .. tracks.create › TrackController@create
+  GET|HEAD        tracks/{track} ..... tracks.show › TrackController@show
+  PUT|PATCH       tracks/{track} . tracks.update › TrackController@update
+  DELETE          tracks/{track} tracks.destroy › TrackController@destroy
+  GET|HEAD        tracks/{track}/edit tracks.edit › TrackController@edit
+  GET|HEAD
+
+*/
