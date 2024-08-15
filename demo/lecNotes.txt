@@ -86,3 +86,39 @@ php artisan make:migration add_track_id_to_students_table
 
 
 == api => resource
+
+// api => application program interface
+==> fluter (mobile devloper) =>data
+== > api => return data not view
+==> blade => view
+
+== fullstack => blade with database
+==> backend frame work => select data
+
+// before version 11 => api => routes=> api code
+-- in version 11 =>  if you want to use api => install api
+
+
+===> php artisan install:api
+
+// route of api
+http://127.0.0.1:8000/api/url
+
+== logic (controller), route(routes/api)
+
+create cotroller to deal with api
+
+php artisan make:controller Api/StudentController --api
+
+
+// handle routes using postman
+https://www.postman.com/downloads/
+
+
+// using api not blade
+// handle validation of all inputs// validator
+// task => reSource => what is it => and use it in code
+// create studentResource => php artisan make:resource StudentResource
+handle code of tracks => track all student name in it
+== update on student to show track name
+== courses => relation between courses , student , track => and write all code of it
