@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-   
+{{-- @dump($tracks) --}}
     <h1 class="text-center text-info m-5">Create New Student  </h1>
     <form class=" border p-2 bordered w-75 m-auto" method="post" action="{{route('students.store')}}">
         @csrf
@@ -61,6 +61,16 @@
            Female
             </label>
           </div>
+         {{-- {{ student track}} --}}
+         <div class="mt-3">
+            <select class="form-select" aria-label="Default select example" name="track_id">
+                <option selected disabled value="">Select your track</option>
+                @foreach ($tracks as $track )
+                <option value="{{$track->id}}">{{$track->name}}</option>
+                @endforeach
+
+              </select>
+         </div>
 
 
         <button type="submit" class="btn btn-primary">Create</button>

@@ -14,5 +14,14 @@ class Student extends Model
      */
 //  protected $table="studntsData";  // if table name with another Name
 /** protected $primaryKey="studentId" */
-protected $fillable=['name','grade','image','address','email','gender'];
+protected $fillable=['name','grade','image','address','email','gender','track_id'];
+
+// one to many
+
+function track()
+{
+    return $this->belongsTo(Track::class);
+    // return $this->belongsTo(Track::class,'track_id','myId');
+}
+
 }

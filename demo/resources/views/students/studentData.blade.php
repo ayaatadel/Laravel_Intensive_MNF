@@ -14,6 +14,8 @@
     {{-- <h1 class="text-info w-50 mt-5 m-auto"> {{$student->name}} Data</h1> --}}
 <table class="table w-75 m-auto table-bordered mt-5">
     <thead>
+
+
         <tr>
             <th scope="col">id</th>
             <th scope="col">Name</th>
@@ -22,13 +24,17 @@
             <th scope="col">Picture</th>
             <th scope="col">email</th>
             <th scope="col">grade</th>
+            @if ($student->track_id)
+
+            <th scope="col">Track</th>
+            @endif
             <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
 
         {{-- @dd($student) --}}
-
+        {{-- @dd($student->track->name) --}}
 
             <tr>
                 {{-- @dd($student) --}}
@@ -39,6 +45,9 @@
                 <td>{{ $student->image }}</td>
                 <td>{{ $student->email }}</td>
                 <td>{{ $student->grade }}</td>
+                @if($student->track)
+                <td><a href="{{route('tracks.show',$student->track_id)}}">{{ $student->track->name}}</a></td>
+                @endif
                 <td>
                    <a href="{{route('students.index')}}">
                      <button class="btn btn-warning">Back</button>

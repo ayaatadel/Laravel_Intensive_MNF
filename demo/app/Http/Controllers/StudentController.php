@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,25 +52,27 @@ class StudentController extends Controller
 
      function create()
      {
-        return view('students.create');
+     $tracks=Track::all();
+
+        return view('students.create',compact('tracks'));
      }
 
      function store()
      {
         // dump($_POST);
         $requestData=request()->all();
-        // dump($requestData);
-        $student= new Student();
+        // dd($requestData);
+        // $student= new Student();
         // dump($student);
-        $student->name=$requestData['name'];
-        $student->email=$requestData['email'];
-        $student->gender=$requestData['gender'];
-        $student->grade=$requestData['grade'];
-        $student->address=$requestData['address'];
-        $student->image=$requestData['image'];
-
+        // $student->name=$requestData['name'];
+        // $student->email=$requestData['email'];
+        // $student->gender=$requestData['gender'];
+        // $student->grade=$requestData['grade'];
+        // $student->address=$requestData['address'];
+        // $student->image=$requestData['image'];
+        $student=Student::create($requestData);
         $student->save();
-        return to_route('students.index');
+        return to_route('students.view',$student->id);
 
 
      }

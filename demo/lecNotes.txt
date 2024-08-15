@@ -50,3 +50,39 @@ courses
 totalGrade,description => seeder , factory , migration ,
  controller=> validation on data
 and handle error message
+
+
+
+=======================
+last day
+==> realtion
+// relation between two tables
+== unary relation  (table and it self) ,
+binary relation (relation between two tables) ,
+ ternary relation (relation between more than 2 tables)
+
+// one to one
+ , one to many , many to many
+
+ === students , tracks   (one to many)
+ =>only one student can apply in one track
+ === > track has many students
+
+ (
+    track_id=> student
+ student_id=>track
+ )
+
+== relation in laravel => database => 1- migration , model
+
+==> migration => coulmns =>foreign key
+
+php artisan make:migration add_track_id_to_students_table
+
+
+
+
+
+
+
+== api => resource

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+{{-- @dd($track->students) --}}
 <h1 class="text-info w-50 mt-5 m-auto"> {{$track->name}} Data</h1>
 <table class="table w-75 m-auto table-bordered mt-5">
     <thead>
@@ -24,7 +24,7 @@
     </thead>
     <tbody>
             <tr>
-                {{-- @dd($student) --}}
+
                 <td>{{ $track->id }}</td>
                 <td>{{ $track->name }}</td>
                 <td>{{ $track->about }}</td>
@@ -41,6 +41,47 @@
 
     </tbody>
 </table>
+
+  {{-- Track Students --}}
+  @if(count($track->students)>0)    {{-- Task if it has not any student table of studen't doesn't appeared--}}
+<h2 class="text-info mt-5 mb-2">All {{$track->name}} Students</h2>
+<table class="table w-75 m-auto table-bordered mt-5">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">age</th>
+            <th scope="col">gender</th>
+
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($track->students as $std)
+        <tr>
+
+            <td>{{ $std->id }}</td>
+            <td>{{ $std->name }}</td>
+            <td>{{ $std->age }}</td>
+            <td>{{ $std->gender }}</td>
+            <td>
+               <a href="{{url()->previous()}}"> <button class="btn btn-success">Back to previous Page</button></a>
+               <a href="{{url('/')}}"> <button class="btn btn-success">Back to Home Page</button></a>
+
+            </td>
+        </tr>
+        @endforeach
+
+
+
+
+
+    </tbody>
+</table>
+@endif
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

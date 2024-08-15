@@ -12,4 +12,9 @@ class Track extends Model
 
     protected $fillable=['name','about','logo'];
 
+    function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
 }
